@@ -55,3 +55,12 @@ def login():
         else:
             count = count+1
             print("\nUser doesn't exist or wrong password! Try again.\n")
+
+def deleteUser(userName):
+    if username == "admin":
+        print("Cannot delete the admin account.\n")
+    elif userName in users:
+        del users[userName]
+        print("User deleted.\n")
+    else:
+        print("User name does not exist in network.\n")

@@ -1,17 +1,19 @@
 import googleDriveAPI
 import users
+import menuTypes
+
 
 def main():
-
     u = users
+    m = menuTypes
+    
     u.login()
 
     #TODO
     if u.privelege:
-        print("MENU")
+        m.privelegeMenu()
     else:
         print("Non priveleged menu")
-    print(u.privelege)
 
 
 
