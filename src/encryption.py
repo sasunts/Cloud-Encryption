@@ -8,10 +8,15 @@ def keyGen():
     file.close()
 
 def keyRead():
-    file = open('Keys/key.key', 'rb')
-    key = file.read()
-    file.close()
-    return key
+    try:
+        file = open('Keys/key.key', 'rb')
+        key = file.read()
+        file.close()
+        return key
+    except FileNotFoundError:
+        print("No Key exists, a new one has just been created.")
+        keyGen()
+        keyRead()
 
 def encrypt(fileName, Key):
     with open("Files/"+ fileName, "rb") as f:

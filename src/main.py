@@ -1,9 +1,12 @@
 import googleDriveAPI
 import users
 import menuTypes
+import encryption
 
 
 def main():
+    e = encryption
+    key = e.keyRead()
     try:
         while True:
             u = users
