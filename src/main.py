@@ -5,16 +5,19 @@ import menuTypes
 
 def main():
     try:
-        u = users
-        m = menuTypes
-    
-        u.login()
+        while True:
+            u = users
+            m = menuTypes
+            if(u.accounts == 0):
+                print("\nYou must create an admin account. Please set username as 'admin'\n")
+                u.newUser()
+            else:
+                u.login()
 
-        #TODO
-        if u.privelege:
-            m.privelegeMenu()
-        else:
-            print("Non priveleged menu")
+                if u.privelege:
+                    m.privelegeMenu()
+                else:
+                    m.standardMenu()
 
     except Exception:
         pass

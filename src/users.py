@@ -16,7 +16,11 @@ def load_list(name):
 
 users = load_list("list")
 privelege = False
-status = ""
+
+if not users:
+    accounts = 0
+else:
+    accounts = 1
 
 def newUser():   
     while True:
