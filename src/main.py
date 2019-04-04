@@ -21,8 +21,8 @@ def main():
                 u.login()
 
                 #Admin has their own menu and standard user has their own specific menu
-                if u.privelege:
-                    m.privelegeMenu()
+                if u.privilege:
+                    m.privilegeMenu()
                 else:
                     m.standardMenu()
 

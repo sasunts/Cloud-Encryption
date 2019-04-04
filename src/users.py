@@ -18,7 +18,7 @@ def load_list(name):
 #users dictionary (Hash map) 
 users = load_list("list")
 #Bool which indicates if admin is logged in or not
-privelege = False
+privilege = False
 
 #Checks to see if dictionary is empty or not
 if not users:
@@ -42,7 +42,7 @@ def newUser():
 
 #Function which allows user to login  
 def login():
-    global privelege
+    global privilege
     count = 0
     while True:
    
@@ -51,7 +51,7 @@ def login():
         
         #First case if the user is logging in as admin
         if login in users and users[login] == password and login == "admin":
-            privelege = True
+            privilege = True
             print("\nLogin successful!\n")
             break
         #Next case is if standard user logs in

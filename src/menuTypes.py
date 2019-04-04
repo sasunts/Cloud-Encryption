@@ -7,8 +7,8 @@ u= users
 e= encryption
 g= googleDriveAPI
 
-#Function to generate menu for priveleged (admin) user
-def privelegeMenu():
+#Function to generate menu for privileged (admin) user
+def privilegeMenu():
     try:
         while True:
             #Menu system used to navigate the management console
@@ -48,7 +48,7 @@ def privelegeMenu():
 
             elif(user_In == "l"):
                 #Logging out of admin account and setting admin bool to false
-                u.privelege = False
+                u.privilege = False
                 print("Logging out.")
                 break
 
@@ -78,7 +78,7 @@ def privelegeMenu():
     except Exception:
         pass
 
-#Function which generates menu for standard non-priveleged users
+#Function which generates menu for standard non-privileged users
 def standardMenu():
     try:
         while True:

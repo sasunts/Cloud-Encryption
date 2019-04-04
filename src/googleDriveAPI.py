@@ -29,19 +29,6 @@ drive_service = discovery.build('drive', 'v3', http=http)
 
 #Google drive API's taken from Google Drive API Quickstart guide modified slightly to my spec
 
-def listFiles():
-
-    results = drive_service.files().list(
-        pageSize=100,fields="nextPageToken, files(id, name)").execute()
-    items = results.get('files', [])
-    if not items:
-        print('No files found.')
-    else:
-        print('Files:')
-        for item in items:
-            print('{0} ({1})'.format(item['name'], item['id']))
-
-
 def uploadFile(fileName):
     try:
         file_metadata = {'name': fileName}
