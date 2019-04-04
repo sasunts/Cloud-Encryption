@@ -19,10 +19,10 @@ def privelegeMenu():
                     user_In = input("|A - Add User | D - Delete User | N - Generate New Key | E - Exit to menu|\n").lower()
                     if (user_In == "a"):
                         u.newUser()
-                        break
+                        
                     elif(user_In == "d"):
                         u.deleteUser()
-                        break
+                        
                     elif(user_In == "N"):
                         e.keyGen()
                         break

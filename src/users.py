@@ -68,13 +68,15 @@ def login():
             print("\nUser doesn't exist or wrong password! Try again.\n")
 
 #Function to delete a user
-def deleteUser(userName):
+def deleteUser():
+    userName = input("\nEnter username you wish to delete: ")
     #Cannot delete admin for obvious reasons 
-    if username == "admin":
+    if userName == "admin":
         print("Cannot delete the admin account.\n")
     elif userName in users:
         #Deleting user from dictionary
         del users[userName]
+        save_list(users, "list")
         print("User deleted.\n")
     else:
         print("User name does not exist in network.\n")
