@@ -10,3 +10,7 @@ You are required to design and implement a suitable key management system for yo
 will allow you to share files securely, and add or remove users from your group. You are free to
 implement your application for a desktop or mobile platform and make use of any open source
 cryptographic libraries.
+
+## How To
+In order to run this program you need to first create a google drive API credential named as `client_secret.json` and save it in the `src` directory.
+Then you must run `main.exe`
