@@ -13,6 +13,8 @@ try:
 except ImportError:
     flags = None
 
+#Google drive Authentication taken from Google Drive API Quickstart Guide
+
 class auth:
     def __init__(self, SCOPES,CLIENT_SECRET_FILE,APPLICATION_NAME):
         self.SCOPES = SCOPES

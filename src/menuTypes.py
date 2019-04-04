@@ -7,6 +7,7 @@ u= users
 e= encryption
 g= googleDriveAPI
 
+#Function to generate menu for priveleged (admin) user
 def privelegeMenu():
     try:
         while True:
@@ -14,6 +15,7 @@ def privelegeMenu():
             user_In = input("|U - Upload file | D - Download file | S - User settings | L - Log out | E - Exit|\n").lower()
             if(user_In == "s"):
                 while True:
+                    #Cases for creating or deleting users and creating a new key
                     user_In = input("|A - Add User | D - Delete User | N - Generate New Key | E - Exit to menu|\n").lower()
                     if (user_In == "a"):
                         u.newUser()
@@ -31,6 +33,7 @@ def privelegeMenu():
 
             elif(user_In == "u"):
                 while True:
+                    #Upload file screen
                     print("\nEnsure that files you wish to upload are in the 'Files' folder.\nEnter m to return to main menu.\n")
                     user_In = input("Enter file name: ")
                     if(user_In == "m"):
@@ -44,16 +47,21 @@ def privelegeMenu():
                 sys.exit()
 
             elif(user_In == "l"):
+                #Logging out of admin account and setting admin bool to false
                 u.privelege = False
                 print("Logging out.")
                 break
+
             elif(user_In == "d"):
+                #Download file screen
                 while True:
                     user_In = input("\n|S - Search for file | D - Download File | E - Exit to menu|\n").lower()
                     if(user_In == "s"):
+                        #Incase you forgot the file name you can double check here
                         user_In = input("Enter file name: ")
                         g.searchFile(user_In)
                     elif(user_In == "d"):
+                        #download file via file name
                         user_In = input("Enter file name: ")
                         fileID= g.fileID(user_In)
                         g.downloadFile(fileID, user_In)
@@ -70,10 +78,11 @@ def privelegeMenu():
     except Exception:
         pass
 
+#Function which generates menu for standard non-priveleged users
 def standardMenu():
     try:
         while True:
-            #Menu system used to navigate the management console
+            #Same as above minus the settings option
             user_In = input("|U - Upload file | D - Download file | L - Log Out | E - Exit|\n").lower()
             if(user_In == "u"):
                 while True:
