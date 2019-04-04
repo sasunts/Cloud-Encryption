@@ -16,7 +16,6 @@ def load_list(name):
 
 users = load_list("list")
 privelege = False
-loggedIn = False
 status = ""
 
 def newUser():   
@@ -32,7 +31,6 @@ def newUser():
             break
  
 def login():
-    global loggedIn
     global privelege
     count = 0
     while True:
@@ -41,12 +39,10 @@ def login():
         password = getpass.getpass("Enter password: ")
  
         if login in users and users[login] == password and login == "admin":
-            loggedIn = True
             privelege = True
             print("\nLogin successful!\n")
             break
         elif login in users and users[login] == password:
-            loggedIn = True
             print("\nLogin successful!\n")
             break
         elif count == 3:

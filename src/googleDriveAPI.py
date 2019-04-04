@@ -40,39 +40,54 @@ def listFiles():
             print('{0} ({1})'.format(item['name'], item['id']))
 
 
-def uploadFile(fileName, filePath):
-    file_metadata = {'name': fileName}
-    media = MediaFileUpload(filePath,
-                            mimetype="text/plain")
-    file = drive_service.files().create(body=file_metadata,
-                                        media_body=media,
-                                        fields='id').execute()
-    fileID = file.get('id')
-    print('File ID: ' + fileID )
+def uploadFile(fileName):
+    try:
+        file_metadata = {'name': fileName}
+        filePath = "Files/"+fileName
+        media = MediaFileUpload(filePath,
+                                mimetype="text/plain")
+        file = drive_service.files().create(body=file_metadata,
+                                            media_body=media,
+                                            fields='id').execute()
+        fileID = file.get('id')
+        print('File ID: ' + fileID )
+    except FileNotFoundError:
+        print("\nFile does not exists please double check\n")
 
 
 def downloadFile(file_id, fileName):
-    request = drive_service.files().get_media(fileId=file_id)
-    fh = io.BytesIO()
-    downloader = MediaIoBaseDownload(fh, request)
-    done = False
-    while done is False:
-        status, done = downloader.next_chunk()
-        print("Download %d%%." % int(status.progress() * 100))
-    with io.open("Downloads/" + fileName, 'wb') as f:
-        fh.seek(0)
-        f.write(fh.read())
-
+    try:
+        request = drive_service.files().get_media(fileId=file_id)
+        fh = io.BytesIO()
+        downloader = MediaIoBaseDownload(fh, request)
+        done = False
+        while done is False:
+            status, done = downloader.next_chunk()
+            print("Download %d%%." % int(status.progress() * 100))
+        with io.open("Downloads/" + fileName, 'wb') as f:
+            fh.seek(0)
+            f.write(fh.read())
+    except FileNotFoundError:
+        print("\nFile does not exists please double check\n")
+    except Exception:
+        pass
 
 def searchFile(query):
-    itemID = []
     results = drive_service.files().list(
     pageSize=100,fields="nextPageToken, files(id, name)", q="name contains '" + query +"'").execute()
     items = results.get('files', [])
     if not items:
         print('No files found.')
     else:
-        print('Files:')
-        i =0
         for item in items:
-            print('{0} ({1})'.format(item['name'], item['id']))
+            print(item['name'])
+
+def fileID(query):
+    results = drive_service.files().list(
+    pageSize=100,fields="nextPageToken, files(id, name)", q="name contains '" + query +"'").execute()
+    items = results.get('files', [])
+    if not items:
+        print('No files found.')
+    else:
+        for item in items:
+            return item['id']

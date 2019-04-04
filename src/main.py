@@ -4,19 +4,19 @@ import menuTypes
 
 
 def main():
-    u = users
-    m = menuTypes
+    try:
+        u = users
+        m = menuTypes
     
-    u.login()
+        u.login()
 
-    #TODO
-    if u.privelege:
-        m.privelegeMenu()
-    else:
-        print("Non priveleged menu")
-
-
-
+        #TODO
+        if u.privelege:
+            m.privelegeMenu()
+        else:
+            print("Non priveleged menu")
+    except Exception:
+        pass
 
 
 if __name__ == "__main__":
