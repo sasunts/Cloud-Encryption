@@ -31,13 +31,13 @@ def privelegeMenu():
 
             elif(user_In == "u"):
                 while True:
-                    print("\nEnsure that files you wish to upload are in the 'Files' folder.\nEnter m to return to main menu.")
+                    print("\nEnsure that files you wish to upload are in the 'Files' folder.\nEnter m to return to main menu.\n")
                     user_In = input("Enter file name: ")
                     if(user_In == "m"):
                         break
                     else:
-                        #encrypt here then upload
-                        g.uploadFile(fileName)
+                       e.encrypt(user_In, e.keyRead())
+                       g.uploadFile(user_In)
 
             elif(user_In == "e"):
                 print("Exiting.")
@@ -53,12 +53,11 @@ def privelegeMenu():
                         user_In = input("Enter file name: ")
                         fileID= g.fileID(user_In)
                         g.downloadFile(fileID, user_In)
-                        #decrypt file here
+                        e.decrypt(user_In, e.keyRead())
                     elif(user_In == "e"):
                         break
                     else:
                         print("Wrong input try again\n")
-
             else:
                  print("Wrong input try again\n")
                

@@ -15,9 +15,10 @@ def main():
             m.privelegeMenu()
         else:
             print("Non priveleged menu")
+
     except Exception:
         pass
 
 
 if __name__ == "__main__":
-    main()
+   main()
