@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Secure The Cloud</title>
+    <link href="style.css" rel="stylesheet">
+    <script type="text/javascript" src="/eel.js"></script>
+    <script type="text/javascript" src="main.js"></script>
+
+</head>
+
+<body>
+    <section class="wellcome_area clearfix" id="home">
+        <div class="container h-100">
+            <div class="row h-100 align-items-center">
+                <div class="col-12 col-md">
+                    <div class="wellcome-heading">
+                        <h2 id="statusText">Secure The Cloud</h2>
+                        <h3>AES</h3>
+                        <p id="subText">Don't be a fool encrypt your data.</p>
+                    </div>
+                    <div class="get-start-area">
+                        <form class="form-inline">
+                            <!-- Login screen. -->
+                            <input type="text" id="login" class="form-control email" placeholder="username">
+                            <input type="password" id="password" class="form-control email" placeholder="username">
+                            <input type="button" id="submit" class="submit" value="Login" onclick="loginJS()">
+                            <!-- Menu Buttons -->
+                            <input type="button" id="upload" style="display:none" class="submit" value="Upload File" onclick="uploadScreen()">
+                            <input type="button" id="download" style="display:none" class="submit" value="Download File" onclick="downloadScreen()">
+                            <input type="button" id="settings" style="display:none" class="submit" value="Settings" onclick="settingScreen()">
+                            <input type="button" id="logout" style="display:none" class="submit" value="Log Out" onclick="logOut()">
+
+                            <!-- Upload Screen -->
+                            <input type="text" id="fileNameStr" style="display:none" class="form-control email" placeholder="File Name">
+                            <input type="button" id="uploadSubmit" style="display:none" class="submit" value="Upload File" onclick="uploadClick()">
+
+                            <!-- Download Screen -->
+                            <input type="text" id="searchQuery" style="display:none" class="form-control email" placeholder="File Name">
+                            <input type="button" id="searchButton" style="display:none" class="submit" value="Search" onclick="searchClick()">
+                            <input type="button" id="downloadButton" style="display:none" class="submit" value="Download File" onclick="downloadClick()">
+
+                            <!-- Settings Screen -->
+                            <input type="button" id="addUserButton" style="display:none" class="submit" value="Add User" onclick="addUserScreen()">
+                            <input type="button" id="deleteUserButton" style="display:none" class="submit" value="Delete User" onclick="deleteUserScreen()">
+                            <input type="button" id="newKey" style="display:none" class="submit" value="Generate New Key" onclick="newKeyGen()">
+
+                            <!-- Add User Screen -->
+                            <input type="text" id="addUserName" style="display:none" class="form-control email" placeholder="User Name">
+                            <input type="text" id="addPassword" style="display:none" class="form-control email" placeholder="Password">
+                            <input type="button" id="createUser" style="display:none" class="submit" value="Add User" onclick="createUserButton()">
+
+                            <!-- Delete User Screen -->
+                            <input type="text" id="addUserName" style="display:none" class="form-control email" placeholder="User Name">
+                            <input type="button" id="deleteUser" style="display:none" class="submit" value="Delete User" onclick="deleteUserClick()">
+
+                            <input type="button" id="backButton" style="display:none" class="submit" value="Back" onclick="backButtonClick()">
+
+
+
+                        </form>
+                    </div>
+                    <div class="welcome-thumb">
+                        <p id="consoleResult"></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>
