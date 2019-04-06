@@ -14,3 +14,8 @@ cryptographic libraries.
 ## How To
 In order to run this program you need to first create a google drive API credential named as `client_secret.json` and save it in the `src` directory.
 Then you must run `main.exe`
+
+
+If you want the UI version, again same as above with the client secret. Go into `src/GUI` and run `main.exe`
+
+![alt text](https://github.com/sasunts/Cloud-Encryption/blob/master/UI.PNG)
